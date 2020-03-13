@@ -20,7 +20,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import androidx.paging.PagingData.Companion.insertSeparators
 import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import com.example.android.codelabs.paging.data.GithubRepository
