@@ -102,6 +102,7 @@ class GithubRepository(private val service: GithubService) {
         } catch (exception: HttpException) {
             searchResults.offer(RepoSearchResult.Error(exception))
         }
+
         isRequestInProgress = false
     }
 
