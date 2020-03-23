@@ -39,6 +39,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -55,6 +59,12 @@ dependencies {
     implementation "androidx.paging:paging-runtime:$pagingVersion"
     kapt "androidx.lifecycle:lifecycle-compiler:$archComponentsVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archComponentsVersion"
+
+    implementation "androidx.paging:paging-runtime:3.0.0-SNAPSHOT"
+
 
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

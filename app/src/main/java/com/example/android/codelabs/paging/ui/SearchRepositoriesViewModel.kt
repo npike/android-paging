@@ -20,7 +20,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.LivePagingData
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.example.android.codelabs.paging.data.GithubRepository
+import com.example.android.codelabs.paging.data.SearchReposDataSource
 import com.example.android.codelabs.paging.model.Repo
 import com.example.android.codelabs.paging.model.RepoSearchResult
 
@@ -43,6 +49,14 @@ class SearchRepositoriesViewModel(private val repository: GithubRepository) : Vi
     val networkErrors: LiveData<String> = Transformations.switchMap(repoResult) { it ->
         it.networkErrors
     }
+
+    val livePagingData : LiveData<PagingData<Repo>> = LivePagingData(
+            PagingConfig(5)
+    ) { SearchReposDataSource(
+            githubService =
+    ) }
+            .cachedIn(viewModelScope)
+
 
     /**
      * Search a repository based on a query string.

@@ -16,10 +16,10 @@
 
 package com.example.android.codelabs.paging
 
-import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.codelabs.paging.api.GithubService
 import com.example.android.codelabs.paging.data.GithubRepository
+import com.example.android.codelabs.paging.data.SearchReposDataSource
 import com.example.android.codelabs.paging.ui.ViewModelFactory
 
 /**
@@ -43,5 +43,9 @@ object Injection {
      */
     fun provideViewModelFactory(): ViewModelProvider.Factory {
         return ViewModelFactory(provideGithubRepository())
+    }
+
+    fun provideRepoPagingSource(): SearchReposDataSource {
+        return SearchReposDataSource()
     }
 }
